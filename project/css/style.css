@@ -28,7 +28,25 @@
     padding: 0;
     box-sizing: border-box;
 }
+/* Required semantic layout styles for Homework 5 */
 
+header {
+    background-color: #234f3f;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+}
+
+main {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
 
 /* ---------- Whole page ---------- */
 
