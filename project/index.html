@@ -3,120 +3,164 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Greenfield Coding Club brings curious people together to build for the web.">
-  <title>Greenfield Coding Club | Make and learn together</title>
+  <meta name="description" content="Greenfield Coding Club is a cozy summer-inspired coding community where curious people build beautiful things for the web.">
+  <title>Greenfield Coding Club | Summer Garden Layout</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
   <header class="site-header">
-    <div class="wrap header-inner">
-      <a class="brand" href="index.html">
-        <span class="brand-mark" aria-hidden="true">G</span>
-        Greenfield Coding Club
-      </a>
-
-      <nav class="site-nav" aria-label="Main navigation">
-        <a href="index.html" aria-current="page">Home</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-      </nav>
+    <div class="container">
+      <p class="site-tagline">A sunny little place to learn and build</p>
+      <h1 class="site-title">Greenfield Coding Club</h1>
+      <p class="site-subtitle">
+        A soft summer corner where ideas bloom, code grows, and creativity feels alive.
+      </p>
     </div>
   </header>
 
-  <main>
+  <nav class="site-nav" aria-label="Main navigation">
+    <div class="container">
+      <ul class="nav-list">
+  <li>
+    <a class="active" href="index.html" aria-current="page">Home</a>
+  </li>
 
-    <section class="wrap hero" aria-labelledby="home-title">
-      <div class="hero-copy">
+  <li>
+    <a href="about.html">About</a>
+  </li>
 
-        <p class="eyebrow">Learn · Create · Share</p>
+  <li>
+    <a href="contact.html">Contact</a>
+  </li>
+</ul>
+    </div>
+  </nav>
 
-        <h1 id="home-title">
-          Big ideas start with <span>small experiments.</span>
-        </h1>
+  <main class="site-main">
+    <div class="container page-layout">
 
-        <p class="lead">
-          A friendly coding club for people who want to make useful things
-          for the web, one curious question at a time.
-        </p>
+      <section class="main-content" aria-labelledby="welcome-title">
 
-        <a class="button" href="about.html">Meet the club</a>
+        <section class="hero-card">
+          <p class="mini-label">Summer coding garden</p>
+          <h2 id="welcome-title">Welcome to a bright and leafy web space.</h2>
+          <p>
+            Greenfield Coding Club is a friendly place for beginners and curious makers.
+            Here we learn step by step, grow ideas together, and turn small experiments
+            into websites we can proudly share.
+          </p>
+          <p>
+            This page is designed with a fresh green summer vibe, inspired by leaves,
+            sunshine, and the calm feeling of working in a garden full of ideas.
+          </p>
+          <a class="main-button" href="about.html">Explore our club</a>
+        </section>
 
-        <a class="button button-secondary" href="contact.html">
-          Join a meetup
-        </a>
-
-      </div>
-
-      <img
-        class="hero-image"
-        src="images/coding-club.svg"
-        alt="A coding club member building a project on a laptop"
-      >
-
-    </section>
-
-
-    <section class="section section-soft">
-
-      <div class="wrap">
-
-        <div class="section-intro">
-
-          <p class="eyebrow">Why join us?</p>
-
-          <h2>Make your next idea real.</h2>
-
-          <p class="muted">
-            Bring a laptop and a beginner's mindset.
-            We will help you find a good first step.
+        <section class="content-card" aria-labelledby="activities-title">
+          <p class="mini-label">What we do</p>
+          <h2 id="activities-title">Little steps, lovely progress.</h2>
+          <p>
+            We believe learning web design should feel welcoming, creative, and easy to follow.
+            Every meeting gives members a chance to build something useful and beautiful.
           </p>
 
-        </div>
+          <div class="feature-grid">
+            <article class="feature-box">
+              <h3>Learn gently</h3>
+              <p>
+                We explain HTML, CSS, and layout ideas in a simple and beginner-friendly way.
+              </p>
+            </article>
 
+            <article class="feature-box">
+              <h3>Build together</h3>
+              <p>
+                Members help one another shape pages, improve designs, and fix small problems.
+              </p>
+            </article>
 
-        <div class="card-grid">
+            <article class="feature-box">
+              <h3>Grow with joy</h3>
+              <p>
+                We celebrate progress, even tiny wins, because every new skill is a seed.
+              </p>
+            </article>
+          </div>
+        </section>
 
-          <article class="card">
-            <h3>Start small</h3>
-            <p>
-              Practice the building blocks of the web with projects
-              you can finish and understand.
-            </p>
-          </article>
+        <section class="content-card" aria-labelledby="story-title">
+          <p class="mini-label">A seasonal theme</p>
+          <h2 id="story-title">A page that feels softer and less stiff.</h2>
+          <p>
+            Instead of a plain classroom page, this layout tries to feel like a small summer garden.
+            The colors, wording, spacing, and later the CSS decorations will make the page look more
+            relaxed, lively, and charming.
+          </p>
+          <p>
+            In Session 5, the most important thing is not only beauty, but also using semantic HTML
+            correctly: header, nav, main, section, aside, and footer all have clear jobs in the layout.
+          </p>
+        </section>
 
-          <article class="card">
-            <h3>Get support</h3>
-            <p>
-              Work beside people who can explain a tricky idea
-              or help you find the next clue.
-            </p>
-          </article>
+      </section>
 
-          <article class="card">
-            <h3>Keep growing</h3>
-            <p>
-              Show what you made, get thoughtful feedback,
-              and choose what to explore next.
-            </p>
-          </article>
+      <aside class="sidebar" aria-labelledby="sidebar-title">
+        <section class="sidebar-card">
+          <p class="mini-label">Quick links</p>
+          <h2 id="sidebar-title">Garden paths</h2>
+          <ul class="sidebar-list">
+            <li><a href="about.html">Meet the club</a></li>
+            <li><a href="contact.html">Join a meetup</a></li>
+            <li><a href="contact.html">Send a message</a></li>
+          </ul>
+        </section>
 
-        </div>
+        <section class="sidebar-card">
+          <p class="mini-label">Summer notes</p>
+          <h2>Small reminders</h2>
+          <ul class="sidebar-list">
+            <li>Bring your curiosity.</li>
+            <li>Ask simple questions.</li>
+            <li>Practice a little every week.</li>
+            <li>Make your page feel alive.</li>
+          </ul>
+        </section>
 
-      </div>
+        <section class="sidebar-card highlight-card">
+          <p class="mini-label">Mood of the week</p>
+          <h2>Leafy, sunny, and calm.</h2>
+          <p>
+            A good web page does not only work — it also creates a feeling.
+            This one should feel fresh, green, soft, and welcoming.
+          </p>
+        </section>
+      </aside>
 
-    </section>
-
+    </div>
   </main>
 
-
   <footer class="site-footer">
-    <div class="wrap footer-inner">
-      <span>Greenfield Coding Club</span>
-      <span>Open to curious minds of every level.</span>
+  <div class="container footer-content">
+
+    <div>
+      <p class="footer-title">
+        Greenfield Coding Club © 2026
+      </p>
+
+      <p>
+        Made with curiosity, kindness, and a little summer sparkle.
+      </p>
     </div>
-  </footer>
+
+    <div class="footer-links">
+      <a href="https://github.com/naiu-gud" target="_blank">GitHub</a>
+      <a href="contact.html">Contact</a>
+    </div>
+
+  </div>
+</footer>
 
 </body>
 </html>

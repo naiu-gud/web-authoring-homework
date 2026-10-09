@@ -1,4 +1,27 @@
-/* Base styles for the website */
+/* =========================
+   SESSION 05 - SUMMER GARDEN
+   Greenfield Coding Club
+   ========================= */
+
+
+/* ---------- Color system ---------- */
+
+:root {
+    --forest: #234f3f;
+    --deep-green: #183c30;
+    --leaf: #4f8a68;
+    --fresh-green: #75a985;
+    --sage: #dfeee3;
+    --mint: #eef7f0;
+    --cream: #fffdf7;
+    --sun: #f5d98b;
+    --text: #2f3b35;
+    --muted: #637168;
+    --white: #ffffff;
+}
+
+
+/* ---------- Reset ---------- */
 
 * {
     margin: 0;
@@ -6,211 +29,570 @@
     box-sizing: border-box;
 }
 
+
+/* ---------- Whole page ---------- */
+
 body {
     margin: 0;
-    background-color: #f5f7f5;
-    color: #333333;
-    font-family: Arial, sans-serif;
+    background:
+        radial-gradient(circle at top left, #f4f8df 0, transparent 28%),
+        linear-gradient(180deg, #eef7f0 0%, #fffdf7 48%, #edf6ef 100%);
+    color: var(--text);
+    font-family: "Segoe UI", Arial, sans-serif;
     font-size: 16px;
-    line-height: 1.6;
-}
-h1 {
-    color: #1f4d3b;
-    font-size: 42px;
-    margin-bottom: 16px;
-}
-
-h2 {
-    color: #2f6b52;
-    font-size: 30px;
-    margin-bottom: 14px;
-}
-
-h3 {
-    color: #3f7d62;
-    font-size: 22px;
-    margin-bottom: 10px;
-}
-p {
     line-height: 1.7;
-    margin: 0 0 16px 0;
-}
-img {
-    max-width: 100%;
-    height: auto;
-    border: 2px solid #cccccc;
-    border-radius: 10px;
-    margin: 20px 0;
-}
-ul,
-ol {
-    padding-left: 25px;
-    margin-bottom: 20px;
 }
 
-li {
-    margin-bottom: 8px;
-}
-.wrap {
+
+/* ---------- Reusable page width ---------- */
+
+.container {
     width: 90%;
-    max-width: 1100px;
+    max-width: 1180px;
     margin: 0 auto;
 }
 
+
+/* ---------- Header ---------- */
+
 .site-header {
-    background-color: #1f4d3b;
-    padding: 18px 0;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    color: var(--white);
+    background:
+        linear-gradient(
+            135deg,
+            rgba(24, 60, 48, 0.98),
+            rgba(79, 138, 104, 0.95)
+        );
+    padding: 70px 20px 65px;
 }
 
-.header-inner {
+
+/* Decorative summer circles / leaves */
+
+.site-header::before {
+    content: "";
+    position: absolute;
+    width: 240px;
+    height: 240px;
+    background-color: rgba(255, 255, 255, 0.08);
+    border-radius: 60% 40% 65% 35%;
+    top: -100px;
+    left: -70px;
+    transform: rotate(25deg);
+}
+
+.site-header::after {
+    content: "";
+    position: absolute;
+    width: 190px;
+    height: 190px;
+    background-color: rgba(245, 217, 139, 0.12);
+    border-radius: 40% 60% 35% 65%;
+    right: -55px;
+    bottom: -85px;
+    transform: rotate(-20deg);
+}
+
+.site-header .container {
+    position: relative;
+    z-index: 1;
+}
+
+.site-tagline {
+    margin: 0 0 10px;
+    color: #dff0d8;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.site-title {
+    margin: 0;
+    color: var(--white);
+    font-size: clamp(38px, 6vw, 64px);
+    line-height: 1.1;
+}
+
+.site-subtitle {
+    max-width: 680px;
+    margin: 18px auto 0;
+    color: #eef8f0;
+    font-size: 18px;
+}
+
+
+/* ---------- Navigation ---------- */
+
+.site-nav {
+    background-color: var(--cream);
+    border-bottom: 1px solid #d8e7dc;
+    box-shadow: 0 5px 20px rgba(35, 79, 63, 0.08);
+}
+
+.nav-list {
+    list-style: none;
+
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+
+    gap: 12px;
+
+    padding: 14px 0;
+    margin: 0;
 }
 
-.brand {
-    color: white;
+.nav-list a {
+    display: block;
+    color: var(--forest);
     text-decoration: none;
-    font-size: 20px;
-    font-weight: bold;
+    font-weight: 700;
+
+    padding: 9px 18px;
+
+    border-radius: 999px;
+
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
 }
 
-.site-nav a {
-    color: white;
+.nav-list a:hover,
+.nav-list a.active,
+.nav-list a[aria-current="page"] {
+    background-color: var(--forest);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+
+/* ---------- Main page ---------- */
+
+.site-main {
+    padding: 55px 0 65px;
+}
+
+
+/*
+   FLEXBOX LAYOUT
+
+   .page-layout is the PARENT.
+   main-content and sidebar are its CHILDREN.
+*/
+
+.page-layout {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 34px;
+}
+
+
+/* Main column = wider */
+
+.main-content {
+    flex: 3;
+}
+
+
+/* Sidebar = narrower */
+
+.sidebar {
+    flex: 1;
+
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+
+/* ---------- General cards ---------- */
+
+.hero-card,
+.content-card,
+.sidebar-card {
+    background-color: rgba(255, 255, 255, 0.9);
+
+    border: 1px solid #dbe8de;
+    border-radius: 28px;
+
+    box-shadow:
+        0 15px 35px rgba(35, 79, 63, 0.08);
+
+    padding: 34px;
+}
+
+
+/* ---------- Hero content ---------- */
+
+.hero-card {
+    position: relative;
+    overflow: hidden;
+
+    margin-bottom: 28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.97),
+            rgba(238, 247, 240, 0.95)
+        );
+}
+
+.hero-card::after {
+    content: "";
+    position: absolute;
+
+    width: 130px;
+    height: 130px;
+
+    right: -35px;
+    bottom: -45px;
+
+    background-color: rgba(117, 169, 133, 0.13);
+
+    border-radius: 70% 30% 60% 40%;
+    transform: rotate(30deg);
+}
+
+.mini-label {
+    margin: 0 0 8px;
+
+    color: var(--leaf);
+
+    font-size: 13px;
+    font-weight: 800;
+
+    letter-spacing: 1.7px;
+    text-transform: uppercase;
+}
+
+.hero-card h2,
+.content-card h2,
+.sidebar-card h2 {
+    color: var(--forest);
+
+    line-height: 1.25;
+}
+
+.hero-card h2 {
+    max-width: 700px;
+
+    margin-bottom: 18px;
+
+    font-size: clamp(30px, 4vw, 46px);
+}
+
+.hero-card p,
+.content-card p,
+.sidebar-card p {
+    margin: 0 0 16px;
+}
+
+
+/* ---------- Main button ---------- */
+
+.main-button {
+    display: inline-block;
+
+    margin-top: 10px;
+
+    padding: 12px 22px;
+
+    background-color: var(--forest);
+    color: var(--white);
+
     text-decoration: none;
-    margin-left: 20px;
+    font-weight: 700;
+
+    border-radius: 999px;
+
+    box-shadow:
+        0 8px 20px rgba(35, 79, 63, 0.18);
+
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease;
 }
 
-.site-nav a:hover {
+.main-button:hover {
+    background-color: var(--leaf);
+    transform: translateY(-2px);
+}
+
+
+/* ---------- Content sections ---------- */
+
+.content-card {
+    margin-bottom: 28px;
+}
+
+.content-card h2 {
+    margin-bottom: 14px;
+    font-size: 30px;
+}
+
+
+/* ---------- Feature cards ---------- */
+
+.feature-grid {
+    display: flex;
+
+    gap: 18px;
+
+    margin-top: 26px;
+}
+
+.feature-box {
+    flex: 1;
+
+    padding: 22px;
+
+    background-color: var(--mint);
+
+    border: 1px solid #d7e8db;
+    border-radius: 20px;
+}
+
+.feature-box h3 {
+    margin-bottom: 8px;
+
+    color: var(--leaf);
+
+    font-size: 19px;
+}
+
+.feature-box p {
+    margin: 0;
+
+    color: var(--muted);
+}
+
+
+/* ---------- Sidebar ---------- */
+
+.sidebar-card {
+    padding: 25px;
+}
+
+.sidebar-card h2 {
+    margin-bottom: 15px;
+
+    font-size: 23px;
+}
+
+.sidebar-list {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.sidebar-list li {
+    margin-bottom: 10px;
+}
+
+.sidebar-list a {
+    color: var(--forest);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.sidebar-list a:hover {
+    color: var(--leaf);
     text-decoration: underline;
 }
-.hero {
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    padding: 60px 0;
+
+
+/* Special sunny sidebar */
+
+.highlight-card {
+    background:
+        linear-gradient(
+            145deg,
+            #fffaf0,
+            #f7f0cc
+        );
+
+    border-color: #eadca3;
 }
 
-.hero-copy {
-    flex: 1;
+/* ---------- Contact form ---------- */
+
+.contact-form {
+    margin-top: 24px;
 }
 
-.hero-image {
-    width: 45%;
+.form-group {
+    margin-bottom: 20px;
 }
 
-.eyebrow {
-    color: #548c70;
-    font-size: 14px;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
-
-.lead {
-    font-size: 18px;
-    color: #455a64;
-}
-
-.button {
-    display: inline-block;
-    background-color: #2f6b52;
-    color: white;
-    text-decoration: none;
-    padding: 12px 20px;
-    border-radius: 8px;
-    margin-top: 10px;
-}
-
-.button:hover {
-    background-color: #1f4d3b;
-}
-.section {
-    padding: 50px 0;
-}
-
-.section-soft {
-    background-color: #eaf3ed;
-}
-
-.section-intro {
-    margin-bottom: 25px;
-}
-
-.card-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.card {
-    background-color: white;
-    padding: 24px;
-    border: 1px solid #dbe5df;
-    border-radius: 12px;
-}
-.about-layout {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 30px;
-}
-
-.callout {
-    background-color: #dcecdf;
-    padding: 18px;
-    border-left: 5px solid #2f6b52;
-    margin-top: 20px;
-}
-.contact-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    padding: 50px 0;
-}
-
-.contact-card {
-    background-color: white;
-    padding: 25px;
-    border-radius: 12px;
-    border: 1px solid #dbe5df;
-}
-
-label {
+.form-group label {
     display: block;
-    font-weight: bold;
-    margin-top: 14px;
-    margin-bottom: 5px;
+    margin-bottom: 7px;
+
+    color: var(--forest);
+
+    font-weight: 700;
 }
 
-input,
-textarea {
+.form-group input,
+.form-group textarea {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #cccccc;
-    border-radius: 6px;
+
+    padding: 13px 15px;
+
+    border: 1px solid #cddfd2;
+    border-radius: 14px;
+
+    background-color: #fbfefb;
+
+    color: var(--text);
+
+    font: inherit;
+
+    outline: none;
 }
 
-textarea {
-    min-height: 130px;
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--leaf);
+
+    box-shadow:
+        0 0 0 3px rgba(79, 138, 104, 0.12);
 }
 
-button {
-    margin-top: 15px;
-    background-color: #2f6b52;
-    color: white;
+.form-group textarea {
+    min-height: 150px;
+
+    resize: vertical;
+}
+
+.form-button {
     border: none;
-    padding: 12px 20px;
-    border-radius: 8px;
+
+    padding: 12px 22px;
+
+    background-color: var(--forest);
+    color: var(--white);
+
+    font: inherit;
+    font-weight: 700;
+
+    border-radius: 999px;
+
     cursor: pointer;
-}
-.site-footer {
-    background-color: #1f4d3b;
-    color: white;
-    padding: 25px 0;
-    margin-top: 40px;
+
+    box-shadow:
+        0 8px 20px rgba(35, 79, 63, 0.18);
 }
 
-.footer-inner {
+.form-button:hover {
+    background-color: var(--leaf);
+}
+/* ---------- Footer ---------- */
+
+.site-footer {
+    background-color: var(--deep-green);
+    color: #e8f4eb;
+
+    text-align: center;
+
+    padding: 35px 20px;
+}
+
+.site-footer p {
+    margin: 4px 0;
+}
+
+.site-footer p:last-child {
+    color: #bdd6c4;
+    font-size: 14px;
+}
+
+.footer-content {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+}
+
+.footer-title {
+    font-weight: 700;
+}
+
+.footer-links {
+    display: flex;
+    gap: 12px;
+}
+
+.footer-links a {
+    color: #e8f4eb;
+    text-decoration: none;
+    font-weight: 700;
+    padding: 8px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 999px;
+}
+
+.footer-links a:hover {
+    background-color: #e8f4eb;
+    color: #183c30;
+}
+
+/* ---------- Responsive layout ---------- */
+
+@media (max-width: 850px) {
+
+    .page-layout {
+        flex-direction: column;
+    }
+
+    .main-content,
+    .sidebar {
+        width: 100%;
+    }
+
+    .sidebar {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .sidebar-card {
+        flex: 1 1 250px;
+    }
+
+    .feature-grid {
+        flex-direction: column;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .site-header {
+        padding: 55px 18px;
+    }
+
+    .nav-list {
+        flex-wrap: wrap;
+    }
+
+    .hero-card,
+    .content-card,
+    .sidebar-card {
+        padding: 24px;
+        border-radius: 22px;
+    }
+
+    .site-main {
+        padding-top: 35px;
+    }
+    .footer-content {
+    flex-direction: column;
+    text-align: center;
+}
 }
